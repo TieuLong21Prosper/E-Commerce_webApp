@@ -5,8 +5,8 @@ from .models import Brand, Category, Addproduct
 from .forms import Addproducts
 from shop.admin import routes
 
-@app.route('/')
-def home():
+@app.route('/products')
+def products():
     page = request.args.get('page', 1, type=int)
     products = Addproduct.query.filter(Addproduct.stock > 0).paginate(page=page, per_page=4)
     brands = Brand.query.join(Addproduct, (Brand.id == Addproduct.brand_id)).all()

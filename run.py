@@ -1,6 +1,7 @@
 from shop import app, db
 from shop.admin.models import User
 
+
 def init_db():
     with app.app_context():
         db.create_all()
